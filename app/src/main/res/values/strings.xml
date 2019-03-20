@@ -41,6 +41,7 @@
     <string name="tvTopBanChay">Top Sản phẩm bán chạy</string>
     <string name="title_product">Sản phẩm</string>
     <string name="title_bill">Hóa đơn</string>
+    <string name="login_sign_in">Sign in</string>
 
 
 </resources>

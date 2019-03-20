@@ -37,7 +37,8 @@
         <activity android:name=".ui.CreateUserActivity" />
         <activity android:name=".ui.OverViewAppActivity" />
         <activity android:name=".ui.DetailBillActivity" />
-        <activity android:name=".ui.AddProductActivity"></activity>
+        <activity android:name=".ui.AddProductActivity" />
+        <activity android:name=".ui.DetailProduct"></activity>
     </application>
 
 </manifest>
