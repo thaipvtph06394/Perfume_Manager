@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FragmentHomeActivity"
+    android:gravity="center">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarHome"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:theme="@style/Widget.AppCompat.ActionBar">
+
+            </android.support.v7.widget.Toolbar>
+            <ImageView
+                android:layout_width="400dp"
+                android:layout_height="230dp"
+                android:src="@drawable/background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tvThongKe"
+                android:textColor="@android:color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:background="@color/colorPrimary"/>
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/bcThongKe">
+
+            </com.github.mikephil.charting.charts.BarChart>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tvTopBanChay"
+                android:textColor="@android:color/white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16dp"
+                android:background="@color/colorPrimary"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RecyclerView_NguoiDung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
