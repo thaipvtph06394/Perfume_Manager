@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProductActivity">
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/toolbarProduct"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+    </android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecyclerView_TheLoai"
+        android:layout_below="@+id/toolbarProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_alignParentRight="true"
+        app:fabSize="mini"
+
+        android:id="@+id/fbtn_Sach"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        app:srcCompat="@drawable/ic_add_black_24dp"/>
+
+</RelativeLayout>

@@ -2,20 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vn.edu.poly.perfume_manager">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HelloActivity">
+        android:theme="@style/AppNoTheme">
+        <activity android:name=".ui.HelloActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".ui.Nav_Home_Activity"
+            android:label="@string/title_activity_nav__home_"
+            android:theme="@style/AppNoTheme" />
+        <activity
+            android:name=".ui.Nav_Bottom_Activity"
+            android:label="@string/title_activity_nav__bottom_" />
+        <activity android:name=".ui.FragmentHomeActivity" />
+        <activity android:name=".ui.ProductActivity" />
+        <activity android:name=".ui.BillActivity" />
+        <activity android:name=".ui.CreateUserActivity" />
+        <activity android:name=".ui.OverViewAppActivity" />
+        <activity android:name=".ui.DetailBillActivity" />
+        <activity android:name=".ui.AddProductActivity"></activity>
     </application>
 
 </manifest>
