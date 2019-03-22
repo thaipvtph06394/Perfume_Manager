@@ -5,23 +5,36 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_user"
             android:icon="@drawable/ic_supervisor_account_black_24dp"
             android:title="Tài khoản" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Tài khoản" />
+        <item
+            android:id="@+id/nav_product"
+            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:title="Sản phẩm" />
+        <item
+            android:id="@+id/nav_bill"
+            android:icon="@drawable/ic_bill_black_24dp"
+            android:title="Hóa đơn" />
+        <item
+            android:id="@+id/nav_share"
             android:icon="@drawable/ic_share_black_24dp"
             android:title="Chia sẻ" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/log_out"
-            android:title="Đăng xuất" />
-        <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_flag"
             android:icon="@drawable/ic_flag_black_24dp"
             android:title="Thông tin nhà phát triển" />
         <item
-            android:id="@+id/nav_share"
+            android:id="@+id/nav_log_out"
+            android:icon="@drawable/log_out"
+            android:title="Đăng xuất" />
+
+        <item
+            android:id="@+id/nav_out_door"
             android:icon="@drawable/out_door"
             android:title="Thoát ứng dụng" />
     </group>

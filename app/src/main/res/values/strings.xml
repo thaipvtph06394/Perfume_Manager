@@ -34,7 +34,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_nav__home_">Nav_Home_Activity</string>
+    <string name="title_activity_nav__home_">Home</string>
     <string name="title_activity_nav__bottom_">Nav_Bottom_Activity</string>
 
     <string name="tvThongKe">Thống kê doanh thu</string>

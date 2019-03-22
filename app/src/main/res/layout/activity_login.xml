@@ -59,6 +59,7 @@
             <Button
                 android:layout_marginTop="10dp"
                 android:id="@+id/btnSignIn"
+                android:onClick="onSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Sign in"
@@ -82,7 +83,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="4"
                     android:textColor="@android:color/white"
                     android:text="@string/login_quenPass"/>
                 <TextView
@@ -90,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:id="@+id/tvSignUp"
+                    android:onClick="onSignUp"
                     android:textColor="@android:color/white"
                     android:text="@string/login_sign_up"/>
             </LinearLayout>

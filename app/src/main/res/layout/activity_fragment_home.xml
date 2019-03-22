@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FragmentHomeActivity"
+    tools:context=".ui.fragment.FragmentHomeActivity"
     android:gravity="center">
     <ScrollView
         android:layout_width="match_parent"
@@ -13,16 +13,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbarHome"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
-                android:theme="@style/Widget.AppCompat.ActionBar">
 
-            </android.support.v7.widget.Toolbar>
             <ImageView
-                android:layout_width="400dp"
+                android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:src="@drawable/background"/>
             <TextView

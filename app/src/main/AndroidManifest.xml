@@ -31,9 +31,9 @@
         <activity
             android:name=".ui.Nav_Bottom_Activity"
             android:label="@string/title_activity_nav__bottom_" />
-        <activity android:name=".ui.FragmentHomeActivity" />
-        <activity android:name=".ui.ProductActivity" />
-        <activity android:name=".ui.BillActivity" />
+
+        <activity android:name=".ui.fragment.ProductActivity" />
+        <activity android:name=".ui.fragment.BillActivity" />
         <activity android:name=".ui.CreateUserActivity" />
         <activity android:name=".ui.OverViewAppActivity" />
         <activity android:name=".ui.DetailBillActivity" />
