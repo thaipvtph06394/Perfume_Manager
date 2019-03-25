@@ -8,14 +8,14 @@
     android:gravity="center">
     <android.support.v7.widget.Toolbar
 
-        android:id="@+id/toolbarProduct"
+        android:id="@+id/toolbarDetailProduct"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
     </android.support.v7.widget.Toolbar>
     <ScrollView
-        android:layout_below="@+id/toolbarProduct"
+        android:layout_below="@+id/toolbarDetailProduct"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="15dp">

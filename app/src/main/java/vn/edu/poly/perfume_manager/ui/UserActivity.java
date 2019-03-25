@@ -8,23 +8,21 @@ import android.view.View;
 
 import vn.edu.poly.perfume_manager.R;
 
-public class OverViewAppActivity extends AppCompatActivity {
-
-    private Toolbar toolbarFrag;
-
+public class UserActivity extends AppCompatActivity {
+    Toolbar toolbarUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_over_view_app);
+        setContentView(R.layout.activity_user);
 
-        toolbarFrag = findViewById(R.id.toolbarProduct);
-        setSupportActionBar(toolbarFrag);
+        toolbarUser = findViewById(R.id.toolbarUser);
+        setSupportActionBar(toolbarUser);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbarFrag.setTitleTextColor(Color.WHITE);
-        toolbarFrag.setTitle("Thông tin nhà phát triển");
-        toolbarFrag.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbarUser.setTitleTextColor(Color.WHITE);
+        toolbarUser.setTitle("Tài khoản người dùng");
+        toolbarUser.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
 
-        toolbarFrag.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbarUser.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

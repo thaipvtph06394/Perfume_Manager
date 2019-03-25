@@ -30,6 +30,7 @@ public class Nav_Home_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FragmentHomeActivity menuFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,9 +115,9 @@ public class Nav_Home_Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_user) {
-
+            startActivity(new Intent(getApplicationContext(),UserActivity.class));
         }else if (id == R.id.nav_share) {
-
+            startActivity(new Intent(getApplicationContext(),ShareActivity.class));
         }
         else if (id == R.id.nav_home) {
             Toast.makeText(this, "Chuyen Sang Man Hinh Gioi Thieu", Toast.LENGTH_SHORT).show();

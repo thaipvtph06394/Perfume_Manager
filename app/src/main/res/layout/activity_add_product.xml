@@ -9,14 +9,15 @@
 
     <android.support.v7.widget.Toolbar
 
-        android:id="@+id/toolbarProduct"
+        android:id="@+id/toolbarAddProduct"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
     </android.support.v7.widget.Toolbar>
     <ScrollView
-        android:layout_below="@+id/toolbarProduct"
+
+        android:layout_below="@+id/toolbarAddProduct"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout

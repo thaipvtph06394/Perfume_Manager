@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailBillActivity">
+    tools:context=".ui.ShareActivity">
     <android.support.v7.widget.Toolbar
 
-        android:id="@+id/toolbarDetailBill"
+        android:id="@+id/toolbarShare"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
