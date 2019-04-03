@@ -1,27 +1,22 @@
-package vn.edu.poly.perfume_manager.ui.fragment;
+package vn.edu.poly.perfume_manager.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 import vn.edu.poly.perfume_manager.R;
 import vn.edu.poly.perfume_manager.model.Product;
 import vn.edu.poly.perfume_manager.ui.AddProductActivity;
-import vn.edu.poly.perfume_manager.ui.OverViewAppActivity;
-import vn.edu.poly.perfume_manager.ui.adapter.ProductAdapter;
+import vn.edu.poly.perfume_manager.adapter.ProductAdapter;
 
 public class ProductActivity extends AppCompatActivity {
     Toolbar toolbarProduct;
@@ -53,5 +48,20 @@ public class ProductActivity extends AppCompatActivity {
 
     public void onAddProduct(View view) {
         startActivity(new Intent(getApplicationContext(),AddProductActivity.class));
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.timkiem_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.search_item:
+
+                break;
+        }
+        return false;
     }
 }

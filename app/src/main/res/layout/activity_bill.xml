@@ -4,22 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.BillActivity">
+    tools:context=".ui.BillActivity">
     <android.support.v7.widget.Toolbar
 
-        android:id="@+id/toolbarProduct"
+        android:id="@+id/toolbarBill"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
     </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:padding="12dp"
+        android:layout_below="@id/toolbarBill"
+        android:orientation="horizontal"
+        android:id="@+id/row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Tổng tiền:" />
+
+        <TextView
+            android:id="@+id/tvDoanhThuNgay"
+            android:textSize="20dp"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
+
         android:id="@+id/RecyclerView_TheLoai"
-        android:layout_below="@+id/toolbarProduct"
+        android:layout_below="@+id/row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_alignParentRight="true"
+        app:fabSize="mini"
+
+        android:id="@+id/fbtn_Product"
+        android:onClick="onAddBill"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        app:srcCompat="@drawable/ic_add_black_24dp"/>
 
 
 </RelativeLayout>

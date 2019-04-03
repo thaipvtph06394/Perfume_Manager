@@ -8,21 +8,21 @@ import android.view.View;
 
 import vn.edu.poly.perfume_manager.R;
 
-public class DetailBillActivity extends AppCompatActivity {
-    Toolbar toolbarDetailBill;
+public class TopActivity extends AppCompatActivity {
+
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_bill);
-
-        toolbarDetailBill = findViewById(R.id.toolbarProduct);
-        setSupportActionBar(toolbarDetailBill);
+        setContentView(R.layout.activity_top);
+        toolbar = findViewById(R.id.toolbarTop);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbarDetailBill.setTitleTextColor(Color.WHITE);
-        toolbarDetailBill.setTitle("Hóa Đơn chi tiết");
-        toolbarDetailBill.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-
-        toolbarDetailBill.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setTitle("Chia sẻ App");
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

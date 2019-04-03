@@ -33,6 +33,7 @@
                 android:layout_weight="1"
                     android:src="@drawable/background"/>
                 <LinearLayout
+                    android:layout_marginTop="20dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -60,19 +61,7 @@
                         android:layout_height="wrap_content"
                         android:text="giá nhập"
                         android:textColor="@color/green"/>
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
 
-                    </Spinner>
-                    <Button
-                        android:id="@+id/btnSignIn"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Thêm hóa đơn"
-                        android:textColor="@android:color/white"
-                        android:background="@drawable/btn_login"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -195,7 +184,22 @@
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Sửa"
+                    android:layout_margin="5dp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/btn_red"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -95,34 +95,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mùi hương "/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Mùi hương" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Đối tượng sử dụng"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nam/Nữ/All" />
-            </LinearLayout>
+
+
 
         </LinearLayout>
             <LinearLayout
@@ -178,45 +152,42 @@
                         android:hint="323" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="Ngày nhập kho"/>
+                <LinearLayout
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Ngày nhập"/>
-                    <LinearLayout
-                        android:gravity="end"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
+                        android:paddingLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="Chọn ngày"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+                    <Button
 
-                            android:paddingLeft="5dp"
-                            android:gravity="center_vertical"
-
-                            android:text="Chọn ngày"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="match_parent" />
-                        <Button
-
-                            android:layout_gravity="center"
-                            android:layout_width="0dp"
-                            android:layout_weight="2"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:text="Chọn"
-                            android:background="@drawable/btn_date"/>
-                    </LinearLayout>
+                        android:layout_gravity="center"
+                        android:layout_width="60dp"
+                        android:layout_height="30dp"
+                        android:textColor="@color/white"
+                        android:text="Chọn"
+                        android:background="@drawable/btn_date"/>
                 </LinearLayout>
+            </LinearLayout>
 
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ngày nhập"/>
+                android:text="Mô tả sản phẩm"/>
                 <EditText
                     android:id="@+id/edSDT_themNguoidung"
                     android:layout_width="match_parent"

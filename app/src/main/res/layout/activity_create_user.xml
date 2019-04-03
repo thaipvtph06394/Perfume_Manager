@@ -83,40 +83,6 @@
                     android:hint="Số Điện Thoại" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-
-                    android:id="@+id/edHoTen_themNguoidung"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Họ Tên" />
-            </android.support.design.widget.TextInputLayout>
-            <LinearLayout
-                android:gravity="end"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/tvChonNgay"
-                    android:paddingLeft="5dp"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    android:text="Chọn ngày"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent" />
-                <Button
-                    android:id="@+id/btnChonNgay"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:textColor="@color/white"
-                    android:text="Chọn"
-                    android:background="@drawable/btn_date"/>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_marginTop="20dp"

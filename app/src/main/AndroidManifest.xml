@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppNoTheme">
-        <activity android:name=".ui.HelloActivity">
+        <activity android:name=".ui.HelloActivity"
+            android:screenOrientation="portrait">
+            <!--them thuoc tinh neu khach hang chi yeu cau man hinh doc-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,18 +31,18 @@
             android:name=".ui.Nav_Home_Activity"
             android:label="@string/title_activity_nav__home_"
             android:theme="@style/AppNoTheme" />
-        <activity
-            android:name=".ui.Nav_Bottom_Activity"
-            android:label="@string/title_activity_nav__bottom_" />
-        <activity android:name=".ui.fragment.ProductActivity" />
-        <activity android:name=".ui.fragment.BillActivity" />
+
+        <activity android:name=".ui.ProductActivity" />
+        <activity android:name=".ui.BillActivity" />
         <activity android:name=".ui.CreateUserActivity" />
         <activity android:name=".ui.OverViewAppActivity" />
-        <activity android:name=".ui.DetailBillActivity" />
         <activity android:name=".ui.AddProductActivity" />
         <activity android:name=".ui.DetailProduct" />
         <activity android:name=".ui.UserActivity" />
-        <activity android:name=".ui.ShareActivity"></activity>
+        <activity android:name=".ui.ShareActivity" />
+        <activity android:name=".ui.ThongKeActivity" />
+        <activity android:name=".ui.TopActivity" />
+        <activity android:name=".ui.TinTucActivity"></activity>
     </application>
 
 </manifest>

@@ -38,7 +38,7 @@
     <string name="title_activity_nav__bottom_">Nav_Bottom_Activity</string>
 
     <string name="tvThongKe">Thống kê doanh thu</string>
-    <string name="tvTopBanChay">Top Sản phẩm bán chạy</string>
+    <string name="tvTopBanChay">Tổng doanh thu</string>
     <string name="title_product">Sản phẩm</string>
     <string name="title_bill">Hóa đơn</string>
     <string name="login_sign_in">Sign in</string>
