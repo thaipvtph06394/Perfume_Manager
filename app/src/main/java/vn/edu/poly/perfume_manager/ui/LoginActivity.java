@@ -75,36 +75,36 @@ public class LoginActivity extends AppCompatActivity{
         btnSignIn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String username = edEmail.getText().toString().trim();
-//                String password = edPass.getText().toString().trim();
-//                if(username.isEmpty() || password.isEmpty() || password.length() < 6){
-//                    if (username.isEmpty()){
-//                        edEmail.setError(getString(R.string.error_empty_username));
-//                    }
-//                    if (password.isEmpty()){
-//                        edPass.setError(getString(R.string.error_empty_password));
-//                    }
-//                    if (password.length()<6){
-//                        edPass.setError(getString(R.string.error_length_password));
-//                    }
-//                }else {
-//                    UserDAO userDAO = new UserDAO(databaseHelper);
-//                    User user = userDAO.getUser(username);
-//                    if (user == null){
-//                        Toast.makeText(LoginActivity.this, getString(R.string.error_wrong_username_password), Toast.LENGTH_SHORT).show();
-//                    }else {
-//                        String passwordOnDB = user.getPassword();
-//
-//                        if (passwordOnDB.equals(password)) {
-//                            startActivity(new Intent(LoginActivity.this, Nav_Home_Activity.class));
-//                            Toast.makeText(LoginActivity.this, getString(R.string.login_success_sign_in), Toast.LENGTH_SHORT).show();
-//                            finish();
-//                        } else Toast.makeText(
-//                                LoginActivity.this,
-//                                getString(R.string.error_wrong_username_password), Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                }
+                String username = edEmail.getText().toString().trim();
+                String password = edPass.getText().toString().trim();
+                if(username.isEmpty() || password.isEmpty() || password.length() < 6){
+                    if (username.isEmpty()){
+                        edEmail.setError(getString(R.string.error_empty_username));
+                    }
+                    if (password.isEmpty()){
+                        edPass.setError(getString(R.string.error_empty_password));
+                    }
+                    if (password.length()<6){
+                        edPass.setError(getString(R.string.error_length_password));
+                    }
+                }else {
+                    UserDAO userDAO = new UserDAO(databaseHelper);
+                    User user = userDAO.getUser(username);
+                    if (user == null){
+                        Toast.makeText(LoginActivity.this, getString(R.string.error_wrong_username_password), Toast.LENGTH_SHORT).show();
+                    }else {
+                        String passwordOnDB = user.getPassword();
+
+                        if (passwordOnDB.equals(password)) {
+                            startActivity(new Intent(LoginActivity.this, Nav_Home_Activity.class));
+                            Toast.makeText(LoginActivity.this, getString(R.string.login_success_sign_in), Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else Toast.makeText(
+                                LoginActivity.this,
+                                getString(R.string.error_wrong_username_password), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
                 startActivity(new Intent(LoginActivity.this, Nav_Home_Activity.class));
             }
         });

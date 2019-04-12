@@ -18,7 +18,7 @@ public class TopProductAdapter extends RecyclerView.Adapter<TopProductAdapter.Vi
     private List<SelectTopProduct> productsList;
 
     public TopProductAdapter(List<SelectTopProduct> products) {
-        this.productsList = productsList;
+        this.productsList = products;
     }
 
     @NonNull
