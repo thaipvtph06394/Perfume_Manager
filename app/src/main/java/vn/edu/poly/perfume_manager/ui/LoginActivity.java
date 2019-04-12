@@ -37,6 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.poly.perfume_manager.R;
+import vn.edu.poly.perfume_manager.database.DatabaseHelper;
+import vn.edu.poly.perfume_manager.model.User;
+import vn.edu.poly.perfume_manager.sqlitedao.UserDAO;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -50,27 +53,79 @@ public class LoginActivity extends AppCompatActivity{
     private Button btnSignFB;
     private TextView tvSignUp;
 
+    private DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        
-        edEmail = (EditText) findViewById(R.id.edEmail);
-        edPass = (EditText) findViewById(R.id.edPass);
-        btnSignIn = (Button) findViewById(R.id.btnSignIn);
-        btnSignFB = (Button) findViewById(R.id.btnSignFB);
-        tvSignUp = (TextView) findViewById(R.id.tvSignUp);
+        initViews();
+
+        databaseHelper = new DatabaseHelper(this);
+
+        UserDAO userDAO = new UserDAO(databaseHelper);
+
+//        final User user = new User();
+//        user.setUsername("admin");
+//        user.setName("Perfume Manager");
+//        user.setPassword("admin123");
+//        user.setSdt("0377326091");
+//        userDAO.insertUser(user);
+
+        btnSignIn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                String username = edEmail.getText().toString().trim();
+//                String password = edPass.getText().toString().trim();
+//                if(username.isEmpty() || password.isEmpty() || password.length() < 6){
+//                    if (username.isEmpty()){
+//                        edEmail.setError(getString(R.string.error_empty_username));
+//                    }
+//                    if (password.isEmpty()){
+//                        edPass.setError(getString(R.string.error_empty_password));
+//                    }
+//                    if (password.length()<6){
+//                        edPass.setError(getString(R.string.error_length_password));
+//                    }
+//                }else {
+//                    UserDAO userDAO = new UserDAO(databaseHelper);
+//                    User user = userDAO.getUser(username);
+//                    if (user == null){
+//                        Toast.makeText(LoginActivity.this, getString(R.string.error_wrong_username_password), Toast.LENGTH_SHORT).show();
+//                    }else {
+//                        String passwordOnDB = user.getPassword();
+//
+//                        if (passwordOnDB.equals(password)) {
+//                            startActivity(new Intent(LoginActivity.this, Nav_Home_Activity.class));
+//                            Toast.makeText(LoginActivity.this, getString(R.string.login_success_sign_in), Toast.LENGTH_SHORT).show();
+//                            finish();
+//                        } else Toast.makeText(
+//                                LoginActivity.this,
+//                                getString(R.string.error_wrong_username_password), Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                }
+                startActivity(new Intent(LoginActivity.this, Nav_Home_Activity.class));
+            }
+        });
+        tvSignUp.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, CreateUserActivity.class));
+                finish();
+            }
+        });
 
     }
 
-    public void onSignUp(View view) {
-        Toast.makeText(this, "Chuyen Sang Man Hinh Dang Ky", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),CreateUserActivity.class));
-    }
 
-    public void onSignIn(View view) {
-        Toast.makeText(this, "Dang nhap thanh cong", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),Nav_Home_Activity.class));
+    private void initViews() {
+        edEmail =  findViewById(R.id.edEmail);
+        edPass =  findViewById(R.id.edPass);
+        btnSignIn =  findViewById(R.id.btnSignIn);
+        btnSignFB =  findViewById(R.id.btnSignFB);
+        tvSignUp =  findViewById(R.id.tvSignUp);
+
     }
 }
 

@@ -46,18 +46,26 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/tvNameUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hate Mun"/>
                 <TextView
+                    android:id="@+id/tvEmailUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="holygansnt@gmail.com"/>
                 <TextView
+                    android:id="@+id/tvPhoneUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="+8477326091"/>
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/tvPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*********"/>
+        </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -66,6 +74,7 @@
                 android:gravity="center">
                 <Button
                     android:text="Chỉnh sửa"
+                    android:id="@+id/btnEditUser"
                     android:background="@drawable/btn_green"
                     android:layout_width="120dp"
                     android:textColor="@color/white"

@@ -3,6 +3,7 @@ package vn.edu.poly.perfume_manager.sqlitedao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +11,11 @@ import java.util.List;
 import vn.edu.poly.perfume_manager.Constant;
 import vn.edu.poly.perfume_manager.database.DatabaseHelper;
 import vn.edu.poly.perfume_manager.model.Product;
+import vn.edu.poly.perfume_manager.model.SelectTopProduct;
 
 public class ProductDAO implements Constant{
     private DatabaseHelper databaseHelper;
-
+    private static final String TAG = "NuocHoa";
     public ProductDAO(DatabaseHelper databaseHelper){this.databaseHelper = databaseHelper;}
 
     public long insertProduct(Product Product){
@@ -27,13 +29,10 @@ public class ProductDAO implements Constant{
         contentValues.put(PRODUCT_PRICE_IN,Product.product_price_in);
         contentValues.put(PRODUCT_PRICE_OUT,Product.product_price_out);
         contentValues.put(PRODUCT_QUALITY,Product.product_quality);
-        contentValues.put(PRODUCT_DATE,Product.product_date);
         contentValues.put(PRODUCT_DETAIL,Product.product_detail);
-
-        long result = sqLiteDatabase.insert(TABLE_PRODUCT,null,contentValues);
-
-        sqLiteDatabase.close();
-        return result;
+        long resuft= sqLiteDatabase.insert(TABLE_PRODUCT,null,contentValues);
+        databaseHelper.close();
+        return resuft;
     }
     public long updateProduct(Product Product){
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
@@ -45,7 +44,6 @@ public class ProductDAO implements Constant{
         contentValues.put(PRODUCT_PRICE_IN,Product.product_price_in);
         contentValues.put(PRODUCT_PRICE_OUT,Product.product_price_out);
         contentValues.put(PRODUCT_QUALITY,Product.product_quality);
-        contentValues.put(PRODUCT_DATE,Product.product_date);
         contentValues.put(PRODUCT_DETAIL,Product.product_detail);
 
         long result = sqLiteDatabase.update(TABLE_PRODUCT,contentValues,PRODUCT_ID+"=?",new String[]{Product.product_id});
@@ -53,12 +51,12 @@ public class ProductDAO implements Constant{
         sqLiteDatabase.close();
         return result;
     }
-    public long deleteBill(String id){
+    public long deleteProduct( String id){
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
-        long result = sqLiteDatabase.delete(TABLE_PRODUCT,PRODUCT_ID+"=?",new String[]{id});
+        long result = sqLiteDatabase.delete(TABLE_PRODUCT,PRODUCT_ID+"=?",new String[]{String.valueOf(id)});
 
-        sqLiteDatabase.close();
+
         return result;
     }
     public List<Product> getAllProducts(){
@@ -75,11 +73,10 @@ public class ProductDAO implements Constant{
                 long product_price_in = cursor.getLong(cursor.getColumnIndex(PRODUCT_PRICE_IN));
                 long product_price_out = cursor.getLong(cursor.getColumnIndex(PRODUCT_PRICE_OUT));
                 int product_quality = cursor.getInt(cursor.getColumnIndex(PRODUCT_QUALITY));
-                long product_date = cursor.getLong(cursor.getColumnIndex(PRODUCT_DATE));
                 String product_detail = cursor.getString(cursor.getColumnIndex(PRODUCT_DETAIL));
 
                 Product Product = new Product(product_id,product_name,product_brand,product_made,
-                        product_price_out,product_price_in,product_quality,product_date,product_detail);
+                        product_price_in,product_price_out,product_quality,product_detail);
 
                 products.add(Product);
 
@@ -101,12 +98,35 @@ public class ProductDAO implements Constant{
             long product_price_in = cursor.getLong(cursor.getColumnIndex(PRODUCT_PRICE_IN));
             long product_price_out = cursor.getLong(cursor.getColumnIndex(PRODUCT_PRICE_OUT));
             int product_quality = cursor.getInt(cursor.getColumnIndex(PRODUCT_QUALITY));
-            long product_date = cursor.getLong(cursor.getColumnIndex(PRODUCT_DATE));
             String product_detail = cursor.getString(cursor.getColumnIndex(PRODUCT_DETAIL));
 
             Product = new Product(product_id,product_name,product_brand,product_made,
-                    product_price_out,product_price_in,product_quality,product_date,product_detail);
+                    product_price_in,product_price_out,product_quality,product_detail);
         }
         return Product;
     }
+    public List<SelectTopProduct> getTop() {
+        List<SelectTopProduct> selectTop10Books = new ArrayList<>();
+
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select Products.MaProduct as e, SUM(Bills.soLuong) as i from  Bills, Products where Products.MaProduct = Bills.MaProduct  group by Products.MaProduct order by SUM(Bills.soLuong) desc LIMIT 10",
+                null);
+
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                String id = cursor.getString(cursor.getColumnIndex("e"));
+                int amount = cursor.getInt(cursor.getColumnIndex("i"));
+                SelectTopProduct product = new SelectTopProduct();
+                product.setId(id);
+                product.setAmount(amount);
+
+                selectTop10Books.add(product);
+
+            } while (cursor.moveToNext());
+        }
+
+        return selectTop10Books;
+    }
+
 }

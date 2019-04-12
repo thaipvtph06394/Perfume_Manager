@@ -107,13 +107,7 @@ public class Nav_Home_Activity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-         if (id == R.id.nav_share) {
-            startActivity(new Intent(getApplicationContext(),ShareActivity.class));
-        } else if (id == R.id.nav_flag) {
-            Toast.makeText(this, "Chuyen Sang Man Hinh Gioi Thieu", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getApplicationContext(),OverViewAppActivity.class));
-        } else if (id == R.id.nav_log_out) {
+            if (id == R.id.nav_log_out) {
             Toast.makeText(this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
 

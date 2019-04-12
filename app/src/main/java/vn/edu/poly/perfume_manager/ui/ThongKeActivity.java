@@ -7,6 +7,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 import vn.edu.poly.perfume_manager.R;
 
@@ -22,7 +29,7 @@ public class ThongKeActivity extends AppCompatActivity {
         setSupportActionBar(toolbarThongke);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbarThongke.setTitleTextColor(Color.WHITE);
-        toolbarThongke.setTitle("Chia sẻ App");
+        toolbarThongke.setTitle("Thống kê");
         toolbarThongke.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
 
         toolbarThongke.setNavigationOnClickListener(new View.OnClickListener() {
@@ -41,6 +48,18 @@ public class ThongKeActivity extends AppCompatActivity {
     }
 
     public void setData(int data) {
-//        this.data = data;
+        ArrayList<BarEntry> barEntries =new ArrayList<>();
+        for (int i=0;i<data;i++){
+            float value = (float) (Math.random()*1000);
+            barEntries.add(new BarEntry(i,(int) value));
+        }
+        BarDataSet set = new BarDataSet(barEntries, "Data Set");
+        set.setColors(ColorTemplate.LIBERTY_COLORS);
+        set.setDrawIcons(true);
+
+        BarData datas = new BarData(set);
+        bcThongKe.setData(datas);
+        bcThongKe.invalidate();
+        bcThongKe.animateY(2000);
     }
 }

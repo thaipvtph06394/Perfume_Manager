@@ -26,7 +26,6 @@ public interface Constant {
     // bill table
     String TABLE_BILL = "Bills";
     String BILL_ID = "MaBill";
-    String BILL_NAME = "NameBill";
     String BILL_PRODUCT_ID = "MaProduct";
     String BILL_DATE = "NgayMua";
     String BILL_QUALITY = "soLuong";
@@ -34,10 +33,9 @@ public interface Constant {
 
     String CREATE_BILL_TABLE = "CREATE TABLE " + TABLE_BILL + "(" +
             "" + BILL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "" + BILL_NAME + " NCHAR(50)," +
-            "" + BILL_PRODUCT_ID + " NCHAR(10)," +
-            "" + BILL_DATE + " LONG NOT NULL," +
-            "" + BILL_QUALITY + " INT NOT NULL" +
+            "" + BILL_PRODUCT_ID + " NCHAR(10) , " +
+            "" + BILL_DATE + " LONG NOT NULL , " +
+            "" + BILL_QUALITY + " INT NOT NULL " +
             ")";
 
 
@@ -54,22 +52,19 @@ public interface Constant {
     String PRODUCT_PRICE_IN = "giaNhap";
     String PRODUCT_PRICE_OUT = "giaBan";
     String PRODUCT_QUALITY = "soLuong";
-    String PRODUCT_DATE = "soLuong";
     String PRODUCT_DETAIL = "moTa";
 
 
 
     String CREATE_PRODUCT_TABLE = "CREATE TABLE " + TABLE_PRODUCT + "(" +
-            "" + PRODUCT_ID + " CHAR(10) PRIMARY KEY NOT NULL," +
-            "" + PRODUCT_NAME + " NCHAR(50)," +
+            "" + PRODUCT_ID + " CHAR(10) PRIMARY KEY ," +
+            "" + PRODUCT_NAME + " NVARCHAR(50)," +
             "" + PRODUCT_BRAND + " NVARCHAR(50)," +
             "" + PRODUCT_MADE + " NVARCHAR(50)," +
-            "" + PRODUCT_PRICE_IN + " FLOAT NOT NULL," +
-            "" + PRODUCT_PRICE_OUT + " FLOAT NOT NULL," +
-            "" + PRODUCT_QUALITY + "  INT NOT NULL" +
-            "" + PRODUCT_DATE + "  LONG NOT NULL" +
-            "" + PRODUCT_DETAIL + " NVARCHAR(999)," +
-
+            "" + PRODUCT_PRICE_IN + " FLOAT NOT NULL ," +
+            "" + PRODUCT_PRICE_OUT + " FLOAT NOT NULL ," +
+            "" + PRODUCT_QUALITY + "  INT NOT NULL , " +
+            "" + PRODUCT_DETAIL + " NVARCHAR(255) " +
             ")";
 
 

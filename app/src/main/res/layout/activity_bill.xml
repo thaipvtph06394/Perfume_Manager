@@ -40,7 +40,7 @@
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
 
-        android:id="@+id/RecyclerView_TheLoai"
+        android:id="@+id/RecyclerView_Bill"
         android:layout_below="@+id/row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -50,7 +50,7 @@
         android:layout_alignParentRight="true"
         app:fabSize="mini"
 
-        android:id="@+id/fbtn_Product"
+        android:id="@+id/fbtn_Bill"
         android:onClick="onAddBill"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"

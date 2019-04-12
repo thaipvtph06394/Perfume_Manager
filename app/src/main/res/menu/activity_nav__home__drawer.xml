@@ -5,14 +5,8 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_share_black_24dp"
-            android:title="Chia sẻ" />
-        <item
-            android:id="@+id/nav_flag"
-            android:icon="@drawable/ic_flag_black_24dp"
-            android:title="Thông tin nhà phát triển" />
+
+
         <item
             android:id="@+id/nav_log_out"
             android:icon="@drawable/log_out"

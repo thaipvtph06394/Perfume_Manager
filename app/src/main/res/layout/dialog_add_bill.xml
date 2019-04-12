@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Mã sản phẩm"/>
         <Spinner
+            android:id="@+id/spID_Bill"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +33,7 @@
             android:layout_height="wrap_content"
             android:text="Số lượng mua"/>
         <EditText
+            android:id="@+id/edQuality_Bill"
             android:layout_width="match_parent"
             android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
@@ -45,11 +47,12 @@
                 android:paddingLeft="5dp"
                 android:gravity="center_vertical"
                 android:text="Ngày mua"
+                android:id="@+id/tvDateBill"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent" />
             <Button
-
+                android:id="@+id/btnDate_Bill"
                 android:layout_gravity="center"
                 android:layout_width="100dp"
                 android:layout_height="40dp"

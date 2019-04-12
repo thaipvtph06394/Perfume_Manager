@@ -1,5 +1,8 @@
 package vn.edu.poly.perfume_manager.listener;
 
-public interface OnDelete<T> {
-    void OnDelete(T t);
+public interface OnDelete {
+     void OnDelete(String id, int position);
+
+
+
 }

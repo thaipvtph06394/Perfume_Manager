@@ -15,7 +15,7 @@ public class DetailProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_product);
 
-        toolbarDetailProduct = findViewById(R.id.toolbarProduct);
+        toolbarDetailProduct = findViewById(R.id.toolbarDetailProduct);
         setSupportActionBar(toolbarDetailProduct);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbarDetailProduct.setTitleTextColor(Color.WHITE);

@@ -11,26 +11,24 @@ import android.widget.TextView;
 import java.util.List;
 
 import vn.edu.poly.perfume_manager.R;
-import vn.edu.poly.perfume_manager.listener.OnAddBillListener;
-import vn.edu.poly.perfume_manager.listener.OnBillDeleteListener;
 import vn.edu.poly.perfume_manager.listener.OnDelete;
 import vn.edu.poly.perfume_manager.listener.OnEdit;
+import vn.edu.poly.perfume_manager.listener.OnViewBill;
 import vn.edu.poly.perfume_manager.model.Bill;
-import vn.edu.poly.perfume_manager.sqlitedao.BillDAO;
+import vn.edu.poly.perfume_manager.ui.BillActivity;
 
 public class BillAdapter extends RecyclerView.Adapter<BillAdapter.ViewHolder> {
     private List<Bill> billList;
     private OnDelete onDelete;
-    private OnAddBillListener onClick;
+    private OnViewBill<Bill> onViewBill;
     private OnEdit onEdit;
-    private BillDAO billDAO;
 
-    public BillAdapter(List<Bill> billList, OnDelete onDelete,OnEdit onEdit, OnAddBillListener onClick, BillDAO billDAO) {
+
+    public BillAdapter(List<Bill> billList, OnDelete onDelete, OnEdit onEdit, BillActivity onViewBill ) {
         this.billList = billList;
         this.onDelete = onDelete;
         this.onEdit = onEdit;
-        this.onClick = onClick;
-        this.billDAO = billDAO;
+
     }
 
     @NonNull
@@ -52,12 +50,11 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.ViewHolder> {
         final Bill st = billList.get(position);
         holder.tvID.setText("Mã hóa đơn: "+st.bill_id);
         holder.tvQuality.setText("Số lượng: "+st.bill_quality);
-        holder.tvName.setText("Sản phẩm "+st.bill_name);
         holder.tvNgayMua.setText("Ngày thanh toán: "+st.bill_date);
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onDelete.OnDelete(st);
+                onDelete.OnDelete(st.bill_id,position);
             }
         });
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
@@ -66,18 +63,23 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.ViewHolder> {
                 onEdit.OnEdit(st);
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onViewBill.onViewBill(st);
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imgAvt,imgDelete,imgEdit;
-        public TextView tvID,tvName,tvNgayMua,tvQuality;
+        public TextView tvID,tvNgayMua,tvQuality;
         public ViewHolder(View itemView) {
             super(itemView);
             imgAvt = itemView.findViewById(R.id.imgBill);
             imgDelete = itemView.findViewById(R.id.imgdeletebill);
             imgEdit = itemView.findViewById(R.id.imgeditbill);
             tvID = itemView.findViewById(R.id.tvBill_id);
-            tvName = itemView.findViewById(R.id.tvName);
             tvQuality = itemView.findViewById(R.id.tvSoluong_bill);
             tvNgayMua = itemView.findViewById(R.id.tvNgayMua);
 

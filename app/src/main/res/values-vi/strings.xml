@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Product_messege_animotion">Đăng nhập thành công !!</string>
+
+    <!--UserActivity-->
+    <string name="user_toolbar_title">Tài khoản người dùng</string>
+
+    <!--Login Activity-->
+
+    <string name="login_sign_up">Đăng ký</string>
+    <string name="login_sign_with_fb" >Đăng nhập với Facebook</string>
+    <string name="login_sign_in">Đăng nhập</string>
+    <string name="login_password">Mật khẩu</string>
+    <string name="login_user">Tài khoản</string>
+    <string name="error_empty_username">Yêu cầu nhập tài khoản !!!</string>
+    <string name="error_empty_password">Yêu cầu nhập mật khẩu !!!</string>
+    <string name="error_length_password">Mật khẩu dưới 6 ký tự !!!</string>
+    <string name="error_wrong_username_password">Tên đăng nhập hoặc mật khẩu sai!</string>
+    <string name="login_success_sign_in">Đăng nhập thành công</string>
+
+    <!--Create activity-->
+
+    <string name="createuser_title">Đăng ký</string>
+    <string name="login_hint_username">Tên đăng nhập</string>
+    <string name="createuser_hint_password">Mật khẩu</string>
+    <string name="createuser_hint_password_re">Nhắc lại mật khẩu</string>
+    <string name="createuser_hint_fullname">Họ và tên</string>
+    <string name="createuser_hint_phone">Số Điện Thoại</string>
+    <string name="createuser_btn_add">Thêm</string>
+    <string name="createuser_btn_cancel">Hủy</string>
+    <string name="create_sign_in">Đăng nhập</string>
+    <string name="create_error_username">Không được để trống!</string>
+    <string name="create_error_repassword">Mật khẩu không khớp!</string>
+    <string name="create_error_length_username">Nhập tối thiểu 6 ký tự!</string>
+    <string name="create_error_number_phone">Nhập vào phải là số!</string>
+    <string name="create_message_success">Tạo tài khoản thành công v</string>
+
+    <!--Product Activity-->
+
+    <string name="product_title">Danh sách nước hoa</string>
+
+
+
+
+</resources>

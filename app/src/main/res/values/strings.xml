@@ -15,11 +15,6 @@
         completions."
     </string>
 
-    <!--màn hinh login-->
-    <string name="email_login">Email of Username Address</string>
-    <string name="password_login">Password</string>
-    <string name="login_quenPass">Don't have an account ?</string>
-    <string name="login_sign_up">SIGN UP</string>
 
     <!--Home nav-->
     <string name="title_activity_main">MainActivity</string>
@@ -41,7 +36,44 @@
     <string name="tvTopBanChay">Tổng doanh thu</string>
     <string name="title_product">Sản phẩm</string>
     <string name="title_bill">Hóa đơn</string>
-    <string name="login_sign_in">Sign in</string>
+
+    <string name="Product_messege_animotion">Login success</string>
+    <string name="user_toolbar_title">Tài khoản người dùng</string>
+
+    <!--Login Activity-->
+
+    <string name="login_sign_up">SIGN UP</string>
+    <string name="login_sign_with_fb">SIGN IN WITH FACEBOOK</string>
+    <string name="login_sign_in">SIGN IN</string>
+    <string name="login_password">Password</string>
+    <string name="login_user">Username</string>
+    <string name="error_empty_username">Yêu cầu nhập tài khoản !!!</string>
+    <string name="error_empty_password">Yêu cầu nhập mật khẩu !!!</string>
+    <string name="error_length_password">Mật khẩu dưới 6 ký tự !!!</string>
+    <string name="error_wrong_username_password">Wrong Username or Password!</string>
+    <string name="login_success_sign_in">Sign in success</string>
+
+    <!--Create activity-->
+
+    <string name="createuser_title">Registration</string>
+    <string name="login_hint_username">Username</string>
+    <string name="createuser_hint_password">Password</string>
+    <string name="createuser_hint_password_re">Re-password</string>
+    <string name="createuser_hint_fullname">Full name</string>
+    <string name="createuser_hint_phone">Phone number</string>
+    <string name="createuser_btn_add">Create</string>
+    <string name="createuser_btn_cancel">Cancel</string>
+    <string name="create_sign_in">Sign in</string>
+    <string name="create_error_username">Không được để trống!</string>
+    <string name="create_error_repassword">Mật khẩu không khớp!</string>
+    <string name="create_error_length_username">Nhập tối thiểu 6 ký tự!</string>
+    <string name="create_error_number_phone">Nhập vào phải là số!</string>
+    <string name="create_message_success">Tạo tài khoản thành công v</string>
+
+    <!--Product Activity-->
+
+    <string name="product_title">List Perfume</string>
+    <string name="tv_hint_search">Nhập từ khóa cần tìm</string>
 
 
 </resources>

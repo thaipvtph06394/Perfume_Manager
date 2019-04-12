@@ -11,25 +11,27 @@ import android.widget.TextView;
 import java.util.List;
 
 import vn.edu.poly.perfume_manager.R;
-import vn.edu.poly.perfume_manager.listener.OnAddBillListener;
 import vn.edu.poly.perfume_manager.listener.OnDelete;
 import vn.edu.poly.perfume_manager.listener.OnEdit;
-import vn.edu.poly.perfume_manager.model.Bill;
+import vn.edu.poly.perfume_manager.listener.OnViewProduct;
 import vn.edu.poly.perfume_manager.model.Product;
-import vn.edu.poly.perfume_manager.sqlitedao.BillDAO;
-import vn.edu.poly.perfume_manager.sqlitedao.ProductDAO;
+import vn.edu.poly.perfume_manager.ui.AddProductActivity;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
     private List<Product> productList;
     private OnDelete onDelete;
     private OnEdit onEdit;
+    private OnViewProduct onViewProduct;
 
-    public ProductAdapter(List<Product> productList, OnDelete onDelete, OnEdit onEdit) {
+    public ProductAdapter(List<Product> productList,OnDelete onDelete,OnEdit onEdit,OnViewProduct onViewProduct) {
         this.productList = productList;
         this.onDelete = onDelete;
         this.onEdit = onEdit;
+        this.onViewProduct= onViewProduct;
 
     }
+
+
 
     @NonNull
     @Override
@@ -42,20 +44,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, final int position) {
         final Product product = productList.get(position);
-        holder.tvName.setText("Sản phẩm "+product.product_name);
+        holder.tvName.setText("Nước hoa "+product.product_name);
         holder.tvQuality.setText("Số lượng: "+product.product_quality);
         holder.tvPrice.setText("Giá :"+product.product_price_out);
         holder.tvBrand.setText("Thương hiệu: "+product.product_brand);
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onDelete.OnDelete(product);
+                onDelete.OnDelete(product.product_id,position);
             }
         });
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onEdit.OnEdit(product);
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onViewProduct.OnViewProduct(product);
             }
         });
     }

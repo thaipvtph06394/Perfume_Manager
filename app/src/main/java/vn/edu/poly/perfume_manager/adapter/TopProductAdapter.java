@@ -12,12 +12,13 @@ import java.util.List;
 
 import vn.edu.poly.perfume_manager.R;
 import vn.edu.poly.perfume_manager.model.Product;
+import vn.edu.poly.perfume_manager.model.SelectTopProduct;
 
 public class TopProductAdapter extends RecyclerView.Adapter<TopProductAdapter.ViewHolder> {
-    private List<Product> productsList;
+    private List<SelectTopProduct> productsList;
 
-    public TopProductAdapter(List<Product> products) {
-        this.productsList = products;
+    public TopProductAdapter(List<SelectTopProduct> products) {
+        this.productsList = productsList;
     }
 
     @NonNull

@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Constant {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BILL);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCT);

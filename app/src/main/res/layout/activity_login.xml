@@ -38,7 +38,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_login"
+                android:hint="@string/login_user"
                 android:drawablePadding="15dp"
                 android:id="@+id/edEmail"
                 android:textColorLink="@android:color/white"
@@ -53,17 +53,15 @@
                 android:textColor="@android:color/white"
                 android:inputType="textPassword"
                 android:layout_height="wrap_content"
-                android:hint="@string/password_login"
+                android:hint="@string/login_password"
                 android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
                 android:paddingLeft="5dp"/>
             <Button
                 android:layout_marginTop="10dp"
                 android:id="@+id/btnSignIn"
-                android:onClick="onSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Sign in"
-
+                android:text="@string/login_sign_in"
                 android:textColor="@android:color/white"
                 android:background="@drawable/btn_login"/>
             <Button
@@ -71,30 +69,20 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/btnSignFB"
                 android:layout_height="match_parent"
-                android:text="SIGN IN WITH FACEBOOK"
+                android:text="@string/login_sign_with_fb"
                 android:textColor="@android:color/white"
                 android:background="@drawable/btn_blue"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:padding="30dp">
+
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:textColor="@android:color/white"
-                   />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="end"
+                    android:layout_margin="20dp"
+                    android:textStyle="bold"
                     android:id="@+id/tvSignUp"
-                    android:onClick="onSignUp"
                     android:textColor="@android:color/white"
                     android:text="@string/login_sign_up"/>
-            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

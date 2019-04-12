@@ -99,23 +99,7 @@
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_height="wrap_content"
-                    android:text="Mùi hương: "/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="ads"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -150,23 +134,7 @@
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày nhập: "/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="date null"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"

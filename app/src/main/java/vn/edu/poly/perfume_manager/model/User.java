@@ -1,10 +1,10 @@
 package vn.edu.poly.perfume_manager.model;
 
 public class User {
-    String username;
-    String password;
-    String name;
-    String sdt;
+    public String username;
+    public String password;
+    public String name;
+    public String sdt;
 
     public String getUsername() {
         return username;
