@@ -15,15 +15,22 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.Map;
 
+import vn.edu.poly.perfume_manager.Constant;
 import vn.edu.poly.perfume_manager.R;
+import vn.edu.poly.perfume_manager.database.DatabaseHelper;
+import vn.edu.poly.perfume_manager.sqlitedao.ThongKeDAO;
 
-public class ThongKeActivity extends AppCompatActivity {
+public class ThongKeActivity extends AppCompatActivity implements Constant {
     private BarChart bcThongKe;
     private Toolbar toolbarThongke;
+    private DatabaseHelper databaseHelper;
+    private ThongKeDAO thongKeDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thong_ke);
+        databaseHelper = new DatabaseHelper(this);
+        thongKeDAO = new ThongKeDAO(databaseHelper);
 
         toolbarThongke = findViewById(R.id.toolbarThongke);
         setSupportActionBar(toolbarThongke);
@@ -38,11 +45,13 @@ public class ThongKeActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+//        String totalDay= String.valueOf(thongKeDAO.totalBillD(Constant.D_DAY))+" Đ";
+//        String totalMon=thongKeDAO.totalBillM()+" Đ";
+//        String totalYeah=thongKeDAO.totalBillY()+" Đ";
 
         bcThongKe = (BarChart) findViewById(R.id.bcThongKe);
         bcThongKe.getDescription().setEnabled(false);
-        setData(12);
+        setData(thongKeDAO.totalBillM());
         bcThongKe.setFitBars(true);
 
     }

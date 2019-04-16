@@ -33,7 +33,7 @@ public interface Constant {
 
     String CREATE_BILL_TABLE = "CREATE TABLE " + TABLE_BILL + "(" +
             "" + BILL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "" + BILL_PRODUCT_ID + " NCHAR(10) , " +
+            "" + BILL_PRODUCT_ID + " NCHAR(5) , " +
             "" + BILL_DATE + " LONG NOT NULL , " +
             "" + BILL_QUALITY + " INT NOT NULL " +
             ")";
@@ -57,7 +57,7 @@ public interface Constant {
 
 
     String CREATE_PRODUCT_TABLE = "CREATE TABLE " + TABLE_PRODUCT + "(" +
-            "" + PRODUCT_ID + " CHAR(10) PRIMARY KEY ," +
+            "" + PRODUCT_ID + " CHAR(5) PRIMARY KEY ," +
             "" + PRODUCT_NAME + " NVARCHAR(50)," +
             "" + PRODUCT_BRAND + " NVARCHAR(50)," +
             "" + PRODUCT_MADE + " NVARCHAR(50)," +

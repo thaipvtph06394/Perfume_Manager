@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailProduct"
     android:gravity="center">
     <android.support.v7.widget.Toolbar
 
@@ -152,22 +151,7 @@
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnEdit"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="Sửa"
-                    android:layout_margin="5dp"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/btn_red"/>
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

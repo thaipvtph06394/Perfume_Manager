@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Spinner;
 
 import java.util.List;
 
@@ -24,6 +25,9 @@ public class TopActivity extends AppCompatActivity {
     private ProductDAO productDAO;
     private Toolbar toolbar;
 
+    Spinner spinnerThang;
+    String thang[] = new String[]{"Tháng 1","Tháng 2","Tháng 3","Tháng 4","Tháng 5","Tháng 6","Tháng 7",
+            "Tháng 8","Tháng 9","Tháng 10","Tháng 11","Tháng 12"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

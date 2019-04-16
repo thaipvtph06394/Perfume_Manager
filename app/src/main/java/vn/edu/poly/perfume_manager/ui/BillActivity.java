@@ -42,7 +42,7 @@ import vn.edu.poly.perfume_manager.sqlitedao.BillDAO;
 import vn.edu.poly.perfume_manager.sqlitedao.ProductDAO;
 import vn.edu.poly.perfume_manager.sqlitedao.TopDAO;
 
-public class BillActivity extends AppCompatActivity implements OnDelete, OnEdit<Bill>, OnViewBill<Bill>, Constant {
+public class BillActivity extends AppCompatActivity implements OnDelete, OnEdit, OnViewBill<Bill>, Constant {
     private Toolbar toolbarBill;
     private RecyclerView RecyclerViewBill;
     private TextView tvDoanhThuNgay;
@@ -218,7 +218,7 @@ public class BillActivity extends AppCompatActivity implements OnDelete, OnEdit<
 
                 Calendar calendar = Calendar.getInstance();
 
-                calendar.set(year, month, dayOfMonth);
+                calendar.set(yy , mm, dd);
 
                 //
                 long startTime = calendar.getTimeInMillis();
@@ -246,9 +246,61 @@ public class BillActivity extends AppCompatActivity implements OnDelete, OnEdit<
     }
 
     @Override
-    public void OnEdit(Bill bill) {
+    public void OnEdit(final String id, final int posion) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.dialog_edit_bill, null);
+        dialog.setView(dialogView);
+        final Dialog dialog1 = dialog.show();
+        billDAO = new BillDAO(databaseHelper);
 
+
+        final Spinner spIDBill;
+        final EditText edQualityBill;
+        TextView tvDateBill;
+        Button btnDateBill;
+        Button btnEdit;
+        Button btnEditCancel;
+        spIDBill = (Spinner) dialogView.findViewById(R.id.spID_Bill);
+        edQualityBill = (EditText) dialogView.findViewById(R.id.edQuality_Bill);
+        tvDateBill = (TextView) dialogView.findViewById(R.id.tvDateBill);
+        btnDateBill = (Button) dialogView.findViewById(R.id.btnDate_Bill);
+        btnEdit = (Button) dialogView.findViewById(R.id.btnEdit);
+        btnEditCancel = (Button) dialogView.findViewById(R.id.btnEditCancel);
+
+
+        List<Product> products = new ProductDAO(databaseHelper).getAllProducts();
+        spIDBill.setAdapter(new AdapterProductSpinner(this, products));
+        final Bill bill = billList.get(posion);
+        edQualityBill.setText(bill.bill_quality);
+        tvDateBill.setText((int) bill.bill_date);
+        spIDBill.getSelectedItem().toString();
+
+        btnEditCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.dismiss();
+            }
+        });
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sp = ((Product) spIDBill.getSelectedItem()).product_name;
+                Integer quality = Integer.parseInt(edQualityBill.getText().toString().trim());
+                if (datePicker < 0) return;
+                Bill bill1 = new Bill(null,sp,datePicker,quality);
+
+                if (billDAO.updateBill(bill1)>0){
+                    Toast.makeText(BillActivity.this, "Chỉnh sửa thành công", Toast.LENGTH_SHORT).show();
+                    billList.set(posion, new Bill(bill.bill_id,bill.bill_product_id,bill.bill_date,bill.bill_quality));
+                    adapterBill.notifyDataSetChanged();
+                }else {
+                    Toast.makeText(BillActivity.this, "Chỉnh sửa thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+
 
     @Override
     public void OnDelete(final String id, final int position) {

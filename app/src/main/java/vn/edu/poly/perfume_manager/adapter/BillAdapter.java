@@ -60,7 +60,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.ViewHolder> {
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onEdit.OnEdit(st);
+                onEdit.OnEdit(st.bill_id,position);
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {

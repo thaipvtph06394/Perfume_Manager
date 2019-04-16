@@ -43,7 +43,6 @@
         <activity android:name=".ui.ThongKeActivity" />
         <activity android:name=".ui.TopActivity" />
         <activity android:name=".ui.TinTucActivity" />
-        <activity android:name=".ui.EditProductActivity"></activity>
     </application>
 
 </manifest>

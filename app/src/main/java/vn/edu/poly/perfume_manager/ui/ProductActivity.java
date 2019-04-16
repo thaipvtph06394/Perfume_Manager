@@ -1,6 +1,8 @@
 package vn.edu.poly.perfume_manager.ui;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,14 +12,18 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.poly.perfume_manager.Constant;
 import vn.edu.poly.perfume_manager.R;
 import vn.edu.poly.perfume_manager.database.DatabaseHelper;
 import vn.edu.poly.perfume_manager.listener.OnDelete;
@@ -31,7 +37,7 @@ import vn.edu.poly.perfume_manager.adapter.ProductAdapter;
 
 import static android.os.Build.VERSION_CODES.O;
 
-public class ProductActivity extends AppCompatActivity implements OnDelete, OnEdit<Product>, OnViewProduct {
+public class ProductActivity extends AppCompatActivity implements OnDelete, OnEdit, OnViewProduct , Constant {
     Toolbar toolbarProduct;
     private List<Product> listProduct;
     private ProductAdapter adapterProduct;
@@ -133,7 +139,106 @@ public class ProductActivity extends AppCompatActivity implements OnDelete, OnEd
 
 
     @Override
-    public void OnEdit(Product product) {
+    public void OnEdit(String id, int posion) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.dialog_edit_product, null);
+        dialog.setView(dialogView);
+        final Dialog dialog1 = dialog.show();
+        final EditText edProductName;
+        final EditText edProductBrand;
+        final EditText edProductMade;
+        final EditText edProductPriceIn;
+        final EditText edProductPriceOut;
+        final EditText edProductQuality;
+        final EditText edProductDetail;
+        Button btnProductEdit;
+        Button btnProductCancel;
+
+        edProductName = (EditText) dialogView.findViewById(R.id.edProduct_Name);
+        edProductBrand = (EditText) dialogView.findViewById(R.id.edProduct_brand);
+        edProductMade = (EditText) dialogView.findViewById(R.id.edProduct_made);
+        edProductPriceIn = (EditText) dialogView.findViewById(R.id.edProduct_price_in);
+        edProductPriceOut = (EditText) dialogView.findViewById(R.id.edProduct_Price_out);
+        edProductQuality = (EditText) dialogView.findViewById(R.id.edProduct_quality);
+        edProductDetail = (EditText) dialogView.findViewById(R.id.edProduct_Detail);
+        btnProductEdit = (Button) dialogView.findViewById(R.id.btnProduct_Edit);
+        btnProductCancel = (Button) dialogView.findViewById(R.id.btnProduct_Cancel);
+        Product product = listProduct.get(posion);
+        edProductName.setText(product.product_name);
+        edProductBrand.setText(product.product_brand);
+        edProductDetail.setText(product.product_detail);
+        edProductMade.setText(product.product_made);
+        edProductPriceIn.setText((int) product.product_price_in);
+        edProductPriceOut.setText((int) product.product_price_out);
+        edProductQuality.setText(product.product_quality);
+
+        btnProductCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1.dismiss();
+            }
+        });
+        btnProductEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Product product = new Product();
+
+                product.product_name = edProductName.getText().toString().trim();
+                product.product_brand= edProductBrand.getText().toString().trim();
+                product.product_detail = edProductDetail.getText().toString().trim();
+                product.product_made = edProductMade.getText().toString().trim();
+
+                if(product.product_name.isEmpty()){
+                    edProductName.setError("Không được để trống!");
+                    return;
+                }
+                else if(product.product_brand.isEmpty()){
+                    edProductBrand.setError("Không được để trống!");
+                    return;
+                }
+                else if(product.product_made.isEmpty()){
+                    edProductMade.setError("Không được để trống!");
+                    return;
+                }
+                else if(product.product_detail.isEmpty()){
+                    edProductDetail.setError("Không được để trống!");
+                    return;
+                }
+                try {
+                    product.product_price_out = Long.parseLong(edProductPriceOut.getText().toString().trim());
+
+                }catch (NumberFormatException ex){
+                    edProductPriceOut.setError("Giá xuất phải là số");
+                }
+                try {
+                    product.product_price_in = Long.parseLong(edProductPriceIn.getText().toString().trim());
+
+                }catch (NumberFormatException ex){
+                    edProductPriceIn.setError("Giá nhập phải là số");
+                }
+                try {
+                    product.product_quality = Integer.parseInt(edProductQuality.getText().toString().trim());
+                }catch (NumberFormatException ex){
+                    edProductQuality.setError("Số lượng phải là số");
+                }
+
+                if (productDAO.updateProduct(product)>0){
+
+                    productDAO.insertProduct(product);
+                    adapterProduct.notifyDataSetChanged();
+                    Toast.makeText(getApplicationContext(), "Chỉnh sửa thành công!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(),ProductActivity.class));
+                    dialog1.dismiss();
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Sửa thất bại thất bại!", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+        });
+
 
     }
 

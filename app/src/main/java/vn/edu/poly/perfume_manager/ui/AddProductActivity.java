@@ -74,7 +74,10 @@ public class AddProductActivity extends AppCompatActivity {
                 }else if(product.product_id.isEmpty()){
                     edProductId.setError("Không được để trống!");
                     return;
-                }else if(product.product_id.length()<6){
+                }else if(product.product_id.length() !=5){
+                    edProductId.setError("Mã sản phẩm phải nhập 5 ký tự");
+                    return;
+                }else if(product.product_name.length()<6){
                     edProductId.setError("Ký tự phải lớn hơn 6");
                     return;
                 }
@@ -108,10 +111,8 @@ public class AddProductActivity extends AppCompatActivity {
                     edProductQuality.setError("Số lượng phải là số");
                 }
 
-                long result = productDAO.insertProduct(product);
-                if (result>0){
+                if (productDAO.insertProduct(product)>0){
 
-                    productDAO.insertProduct(product);
                     Toast.makeText(getApplicationContext(), "Thêm sản phẩm thành công!", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(),ProductActivity.class));
 

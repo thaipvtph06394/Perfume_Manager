@@ -57,7 +57,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onEdit.OnEdit(product);
+                onEdit.OnEdit(product.product_id,position);
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {

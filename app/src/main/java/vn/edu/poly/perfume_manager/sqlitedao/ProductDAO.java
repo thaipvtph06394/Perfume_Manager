@@ -106,10 +106,11 @@ public class ProductDAO implements Constant{
         return Product;
     }
     public List<SelectTopProduct> getTop() {
-        List<SelectTopProduct> selectTop10Books = new ArrayList<>();
+        List<SelectTopProduct> selectTopProducts = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select Products.MaProduct as e, SUM(Bills.soLuong) as i from  Bills, Products where Products.MaProduct = Bills.MaProduct  group by Products.MaProduct order by SUM(Bills.soLuong) desc LIMIT 10",
+        Cursor cursor = sqLiteDatabase.rawQuery("select Products.MaProduct as e, SUM(Bills.soLuong) as i from  Bills, Products where" +
+                        " Bills.MaProduct = Products.MaProduct  group by Products.MaProduct order by SUM(Bills.soLuong) desc LIMIT 10",
                 null);
 
         if (cursor != null && cursor.getCount() > 0) {
@@ -121,12 +122,12 @@ public class ProductDAO implements Constant{
                 product.setId(id);
                 product.setAmount(amount);
 
-                selectTop10Books.add(product);
+                selectTopProducts.add(product);
 
             } while (cursor.moveToNext());
         }
 
-        return selectTop10Books;
+        return selectTopProducts;
     }
 
 }
